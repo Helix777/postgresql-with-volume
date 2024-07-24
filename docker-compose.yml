@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  db:
+    image: my-postgres-image
+    build:
+      context: .
+    environment:
+      POSTGRES_DB: dev-postgres-database
+      POSTGRES_USER: dev-user
+      POSTGRES_PASSWORD: pa55w0rd
+    volumes:
+      - postgres-volume-data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+volumes:
+  postgres-volume-data:
